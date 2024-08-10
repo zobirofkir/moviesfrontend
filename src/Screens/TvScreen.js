@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { MovieContext } from '../hooks/MovieProvider';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -8,19 +8,19 @@ const TvScreen = () => {
     const [page, setPage] = useState(1);
     const [selectedTvShow, setSelectedTvShow] = useState(null);
 
-    const fetchData = async (page) => {
+    const fetchData = useCallback(async (page) => {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_LINK}/api/tv/${page}`);
         setTv(response.data.results);
-    };
+    }, [setTv]);
 
-    const fetchTvShowDetails = async (tvId) => {
+    const fetchTvShowDetails = useCallback(async (tvId) => {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_LINK}/api/tv/${page}/${tvId}`);
         setSelectedTvShow(response.data);
-    };
+    }, [page]);
 
     useEffect(() => {
         fetchData(page);
-    }, [page]);
+    }, [page, fetchData]);
 
     const handleNextPage = () => {
         setPage(prevPage => prevPage + 1);
