@@ -7,9 +7,9 @@ export const MovieProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [featuredMovieIndex, setFeaturedMovieIndex] = useState(0);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+  const [tv, setTv] = useState([]);
   return (
-    <MovieContext.Provider value={{ film, setFilm, currentPage, setCurrentPage, featuredMovieIndex, setFeaturedMovieIndex, selectedMovie, setSelectedMovie }}>
+    <MovieContext.Provider value={{ film, setFilm, currentPage, setCurrentPage, featuredMovieIndex, setFeaturedMovieIndex, selectedMovie, setSelectedMovie, tv, setTv }}>
       {children}
     </MovieContext.Provider>
   );
