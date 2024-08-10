@@ -8,9 +8,11 @@ import AboutScreen from './Screens/AboutScreen';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Search from './Screens/Search';
+import { MovieProvider } from './hooks/MovieProvider';
 
 function App() {
   return (
+    <MovieProvider>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -22,6 +24,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </MovieProvider>
   );
 }
 
