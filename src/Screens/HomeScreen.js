@@ -4,12 +4,12 @@ import HeroSection from '../Components/HeroSection';
 import axios from 'axios';
 import MovieDetail from './MovieDetail';
 
-const HomeScreen = () => { 
+const HomeScreen = () => {
   const [film, setFilm] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [featuredMovieIndex, setFeaturedMovieIndex] = useState(0);
   const [selectedMovie, setSelectedMovie] = useState(null);
- 
+
   const fetchData = async (page) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_LINK}/api/movies/${page}`);
