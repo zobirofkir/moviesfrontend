@@ -4,7 +4,7 @@ import HeroSection from '../Components/HeroSection';
 import axios from 'axios';
 import MovieDetail from './MovieDetail';
 
-const HomeScreen = () => {
+const HomeScreen = () => { 
   const [film, setFilm] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [featuredMovieIndex, setFeaturedMovieIndex] = useState(0);
