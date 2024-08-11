@@ -83,33 +83,33 @@ const HomeScreen = () => {
         ) : (
           <>
             <div className="mb-8">
-            <div className="flex flex-wrap justify-center">
-                <div className="mx-2 my-1">
-                  <a
-                    href="/"
-                    className="block font-bold py-2 px-3 text-black rounded bg-white md:bg-transparent md:text-white"
-                    aria-current="page"
-                  >
-                    Home
-                  </a>
+              <div className="flex flex-wrap justify-center">
+                  <div className="mx-2 my-1">
+                    <a
+                      href="/"
+                      className="block font-bold py-2 px-3 text-black rounded bg-white md:bg-transparent md:text-white"
+                      aria-current="page"
+                    >
+                      Home
+                    </a>
+                  </div>
+                  <div className="mx-2 my-1">
+                    <a
+                      href="/tv"
+                      className="block py-2 px-3 text-white rounded bg-gray-800 hover:bg-gray-700 md:bg-transparent md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      TV
+                    </a>
+                  </div>
+                  <div className="mx-2 my-1">
+                    <a
+                      href="/films"
+                      className="block py-2 px-3 text-white rounded bg-gray-800 hover:bg-gray-700 md:bg-transparent md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      Film
+                    </a>
+                  </div>
                 </div>
-                <div className="mx-2 my-1">
-                  <a
-                    href="/tv"
-                    className="block py-2 px-3 text-white rounded bg-gray-800 hover:bg-gray-700 md:bg-transparent md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    TV
-                  </a>
-                </div>
-                <div className="mx-2 my-1">
-                  <a
-                    href="/films"
-                    className="block py-2 px-3 text-white rounded bg-gray-800 hover:bg-gray-700 md:bg-transparent md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Film
-                  </a>
-                </div>
-              </div>
               <h2 className="text-xl md:text-3xl font-bold m-5">Popular Movies</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {film.map((movie) => {
