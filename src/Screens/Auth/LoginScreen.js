@@ -1,15 +1,37 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Handle the registration logic here
-  };
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_LINK}/api/login`, { email, password });
+      const { access_token, user } = response.data.data;
 
+      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('user', JSON.stringify(user));
+      console.log('Login successful:', response.data.data);
+      navigate("/dashboard");
+
+    } catch (error) {
+      if (error.response)
+      {
+        toast.error("Account Not Found", {
+          position: 'top-right',
+        });
+      }
+    }
+  };
   return (
+    <>
+    <ToastContainer/>
     <div className="flex flex-col items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://t4.ftcdn.net/jpg/01/67/23/55/360_F_167235520_AFrB955JhCwhkpz1ev2L7X9SBcpVgAyg.jpg')" }}>
       <div className="bg-black bg-opacity-75 p-8 rounded-lg max-w-md w-full">
       <div className="flex flex-wrap justify-center">
@@ -66,6 +88,7 @@ const LoginScreen = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

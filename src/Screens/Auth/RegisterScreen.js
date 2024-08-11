@@ -1,16 +1,55 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Handle the registration logic here
+    
+    const data = {
+      name : name,
+      email : email,
+      password : password
+    };
+
+    try {
+
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_LINK}/api/register`, data);
+    console.log(response.data);
+    if(response.data.data && response.data.data.name && response.data.data.email)
+    {
+      toast.success(`Success`, {
+        position: 'top-right',
+      });
+    }
+    else {
+      toast.error('Registration failed. Please try again.', {
+        position: 'top-right',
+      });
+    }
+  }
+    catch(error)
+    {
+      if (error.response)
+      {
+        if (error.response.status === 422)
+        {
+          toast.error('This Email Is Already Exist. Please Select Another One.', {
+            position: 'top-right',
+          });
+        }
+      }
+    }
   };
 
   return (
+    <>
+    <ToastContainer/>
     <div className="flex flex-col items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://t4.ftcdn.net/jpg/01/67/23/55/360_F_167235520_AFrB955JhCwhkpz1ev2L7X9SBcpVgAyg.jpg')" }}>
       <div className="bg-black bg-opacity-75 p-8 rounded-lg max-w-md w-full">
         <div className="flex flex-wrap justify-center">
@@ -76,6 +115,7 @@ const RegisterScreen = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
