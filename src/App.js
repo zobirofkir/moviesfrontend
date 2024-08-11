@@ -9,6 +9,8 @@ import Footer from './Components/Footer';
 import Search from './Screens/Search';
 import { MovieProvider } from './hooks/MovieProvider';
 import TvScreen from './Screens/TvScreen';
+import LoginScreen from './Screens/Auth/LoginScreen'
+import RegisterScreen from './Screens/Auth/RegisterScreen';
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
         <Route path='contacts' element={<ContactScreen />} />
         <Route path='tv' element={<TvScreen />} />
         <Route path='details/:movieId' element={<Search />} />
+
+        {/* Login And Register Routes */}
+        <Route path='login' element={<LoginScreen/>}/>
+        <Route path='register' element={<RegisterScreen/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>
