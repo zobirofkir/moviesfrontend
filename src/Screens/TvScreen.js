@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { MovieContext } from '../hooks/MovieProvider';
 import axios from 'axios';
 import Modal from 'react-modal';
+import HeroSection from '../Components/HeroSection';
 
 const TvScreen = () => {
-    const { tv, setTv } = useContext(MovieContext);
+    const { tv, setTv, film, setFilm, currentPage, featuredMovieIndex, setFeaturedMovieIndex, selectedMovie } = useContext(MovieContext);
     const [page, setPage] = useState(1);
     const [selectedTvShow, setSelectedTvShow] = useState(null);
 
@@ -38,9 +39,44 @@ const TvScreen = () => {
         setSelectedTvShow(null);
     };
 
+    const fetchTvData = useCallback(async (page) => {
+        try {
+          const response = await axios.get(`${process.env.REACT_APP_BACKEND_API_LINK}/api/movies/${page}`);
+          setFilm(response.data.results);
+        } catch (error) {
+          console.error("Failed to fetch movies", error);
+        }
+      }, [setFilm]);
+    
+      useEffect(() => {
+        fetchTvData(currentPage);
+      }, [currentPage, fetchTvData]);
+    
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setFeaturedMovieIndex((prevIndex) => (prevIndex + 1) % film.length);
+        }, 5000);
+    
+        return () => clearInterval(interval);
+      }, [film, setFeaturedMovieIndex]);
+        
+      const handleShowDetailsTv = () => {
+        const movie = film[featuredMovieIndex];
+        fetchTvData(movie.id);
+      };
+    
     return (
         <div className="bg-black min-h-screen text-white">
-            <div className="container mx-auto px-4 py-8">
+        {film.length > 0 && !selectedMovie && (
+            <HeroSection  
+            title={film[featuredMovieIndex].title} 
+            image={`https://image.tmdb.org/t/p/original${film[featuredMovieIndex].backdrop_path}`}
+            description={film[featuredMovieIndex].overview}
+            onClick={handleShowDetailsTv}
+            />
+        )}
+
+        <div className="container mx-auto px-4 py-8">
             <div className="flex flex-wrap justify-center my-20">
                 <div className="mx-2 my-1">
                   <a
