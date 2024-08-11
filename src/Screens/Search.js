@@ -1,4 +1,3 @@
-// Search.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -23,6 +22,20 @@ const Search = () => {
 
     fetchMovie();
   }, [movieId]);
+
+  useEffect(() => {
+    // Dynamically load the AdSense script
+    const script = document.createElement('script');
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1038335302961000";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+
+    // Cleanup function to remove script on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   if (loading) return <p>Loading...</p>;
   if (!movie) return <p>No movie details available.</p>;
@@ -83,6 +96,18 @@ const Search = () => {
             </button>
           </a>
         </div>
+      </div>
+
+      {/* Insert AdSense Ad Unit */}
+      <div className="mt-12">
+        <ins className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-1038335302961000"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"></ins>
+        <script>
+          {(window.adsbygoogle = window.adsbygoogle || []).push({})}
+        </script>
       </div>
     </div>
   );
