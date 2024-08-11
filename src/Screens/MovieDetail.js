@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const MovieDetail = ({ movie }) => {
   if (!movie) return null;
 
+  useEffect(() => {
+    // Dynamically load the AdSense script
+    const script = document.createElement('script');
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1038335302961000";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+
+    // Cleanup function to remove script on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="p-4 md:p-8 bg-black text-white">
@@ -49,9 +62,10 @@ const MovieDetail = ({ movie }) => {
               rel="noopener noreferrer"
               className="text-red-600 hover:underline mb-4 inline-block text-lg bg-red-950 px-6 py-3 rounded-md text-white"
             >
-              Whatch Now
+              Watch Now
             </a>
           )}
+
           <a href='/'>
             <button 
                 className="bg-gray-900 text-white px-6 py-3 rounded-md text-lg hover:bg-gray-800 transition-colors mx-10"
@@ -60,6 +74,18 @@ const MovieDetail = ({ movie }) => {
             </button>
           </a>
         </div>
+      </div>
+
+      {/* Insert AdSense Ad Unit */}
+      <div className="mt-12">
+        <ins className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-1038335302961000"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"></ins>
+        <script>
+          {(window.adsbygoogle = window.adsbygoogle || []).push({})}
+        </script>
       </div>
     </div>
   );
