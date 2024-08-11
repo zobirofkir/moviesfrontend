@@ -53,20 +53,6 @@ const FilmScreen = () => {
     fetchMovieDetail(movie.id);
   };
 
-  useEffect(() => {
-    // Dynamically load the AdSense script
-    const script = document.createElement('script');
-    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1038335302961000";
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    document.body.appendChild(script);
-
-    // Cleanup function to remove script on component unmount
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="bg-black text-white">
       {selectedMovie ? (
@@ -100,18 +86,6 @@ const FilmScreen = () => {
                   );
                 })}
               </div>
-            </div>
-
-            {/* Insert AdSense Ad Unit */}
-            <div className="mt-12">
-              <ins className="adsbygoogle"
-                style={{ display: 'block' }}
-                data-ad-client="ca-pub-1038335302961000"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"></ins>
-              <script>
-                {(window.adsbygoogle = window.adsbygoogle || []).push({})}
-              </script>
             </div>
 
             <div className="flex justify-center items-center space-x-4 mt-8">

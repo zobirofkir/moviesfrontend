@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
 const MovieDetail = ({ movie }) => {
-  if (!movie) return null;
-
   useEffect(() => {
+    if (!movie) return;
+
     // Dynamically load the AdSense script
     const script = document.createElement('script');
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1038335302961000";
@@ -15,7 +15,9 @@ const MovieDetail = ({ movie }) => {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [movie]);
+
+  if (!movie) return null;
 
   return (
     <div className="p-4 md:p-8 bg-black text-white">
@@ -68,9 +70,9 @@ const MovieDetail = ({ movie }) => {
 
           <a href='/'>
             <button 
-                className="bg-gray-900 text-white px-6 py-3 rounded-md text-lg hover:bg-gray-800 transition-colors mx-10"
+              className="bg-gray-900 text-white px-6 py-3 rounded-md text-lg hover:bg-gray-800 transition-colors mx-10"
             >
-                Back to Movies
+              Back to Movies
             </button>
           </a>
         </div>
@@ -84,7 +86,7 @@ const MovieDetail = ({ movie }) => {
           data-ad-slot="1234567890"
           data-ad-format="auto"></ins>
         <script>
-          {(window.adsbygoogle = window.adsbygoogle || []).push({})}
+          {`(window.adsbygoogle = window.adsbygoogle || []).push({})`}
         </script>
       </div>
     </div>

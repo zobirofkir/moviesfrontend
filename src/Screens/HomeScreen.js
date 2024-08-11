@@ -121,7 +121,7 @@ const HomeScreen = () => {
       </div>
       
       {/* AdSense Ad Unit Example */}
-      <div className="my-8">
+      <div className="">
         <ins className="adsbygoogle"
              style={{ display: 'block' }}
              data-ad-client="ca-pub-1038335302961000"

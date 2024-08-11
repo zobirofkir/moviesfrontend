@@ -38,18 +38,6 @@ const TvScreen = () => {
         setSelectedTvShow(null);
     };
 
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1038335302961000";
-        script.async = true;
-        script.crossOrigin = "anonymous";
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-
     return (
         <div className="bg-black min-h-screen text-white">
             <div className="container mx-auto px-4 py-8">
@@ -93,15 +81,6 @@ const TvScreen = () => {
                     >
                         Next
                     </button>
-                </div>
-
-                {/* AdSense Ad Unit */}
-                <div className="my-8">
-                    <ins className="adsbygoogle"
-                         style={{ display: 'block' }}
-                         data-ad-client="ca-pub-1038335302961000"
-                         data-ad-slot="1234567890" // Replace with your actual ad slot ID
-                         data-ad-format="auto"></ins>
                 </div>
             </div>
 
