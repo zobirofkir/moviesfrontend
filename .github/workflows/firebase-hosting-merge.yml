@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CSW_MOVIES }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MEDAL_ZOBIR_OFKIR_MOVIES_CSW }}
           channelId: live
-          projectId: csw-movies
+          projectId: medal-zobir-ofkir-movies-csw
