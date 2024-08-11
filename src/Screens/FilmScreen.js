@@ -73,7 +73,7 @@ const FilmScreen = () => {
             <div className="mb-8">
               <div className='flex justify-center'>
                 <div className='mx-5'>
-                  <a href="/" class="block font-bold py-2 px-5 text-black rounded md:bg-transparent md:text-black-700 md:bg-white md:p-0 md:px-5 text-white md:dark:bkack" aria-current="page">Home</a>
+                  <a href="/" class="block font-bold py-2 px-5 text-black rounded md:bg-transparent md:text-black-700 md:bg-white md:p-0 md:px-5 text-black md:dark:bkack" aria-current="page">Home</a>
                 </div>
                 <div className='mx-5'>
                   <a href="tv" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Tv</a>
