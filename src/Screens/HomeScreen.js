@@ -66,7 +66,10 @@ const HomeScreen = () => {
   };
 
   return (
+
     <div className="bg-black text-white">
+
+      {/* Hero Section */}
       {film.length > 0 && !selectedMovie && (
         <HeroSection  
           title={film[featuredMovieIndex].title} 
@@ -75,6 +78,8 @@ const HomeScreen = () => {
           onClick={handleShowDetails}
         />
       )}
+
+      {/* Movie Details */}
       <div className="p-2 md:p-20">
         {selectedMovie ? (
           <div>
@@ -82,6 +87,7 @@ const HomeScreen = () => {
           </div>
         ) : (
           <>
+          {/* Routes */}
             <div className="mb-8">
               <div className="flex flex-wrap justify-center">
                   <div className="mx-2 my-1">
@@ -127,6 +133,7 @@ const HomeScreen = () => {
               </div>
             </div>
 
+            {/* Pagination */}
             <div className="flex justify-center items-center space-x-4 mt-8">
               <button 
                 onClick={handlePreviousPage} 
