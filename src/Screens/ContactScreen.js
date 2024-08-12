@@ -34,8 +34,13 @@ const ContactScreen = () => {
     
   return (
     <>
+      {/* Add Toastify For Add Validation */}
       <ToastContainer/>
+
+      {/* Contact Screen */}
     <div className="min-h-screen bg-black text-white p-6 flex flex-col items-center justify-center">
+
+      {/* Semi Header */}
       <div className="flex flex-wrap justify-center my-20">
                 <div className="mx-2 my-1">
                   <a
@@ -66,6 +71,7 @@ const ContactScreen = () => {
 
       <h1 className="text-4xl md:text-5xl font-bold mb-8">Contact Us</h1>
 
+      {/* Contact Form */}
       <div className="w-full max-w-3xl bg-gray-800 rounded-lg shadow-lg p-8">
         <form className="space-y-6" onSubmit={postData}>
           <div>
@@ -110,6 +116,7 @@ const ContactScreen = () => {
         </form>
       </div>
 
+      {/* Contact Info */}
       <div className="mt-12 text-center">
         <p className="text-lg">You can also reach us at:</p>
         <p className="text-xl font-semibold">contact@zobirofkir.com</p>
