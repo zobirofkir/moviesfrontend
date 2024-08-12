@@ -79,7 +79,7 @@ const HomeScreen = () => {
         />
       )}
 
-      {/* Movie Details */}
+      {/* web Details */}
       <div className="p-2 md:p-20">
         {selectedMovie ? (
           <div>
