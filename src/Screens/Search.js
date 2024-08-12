@@ -28,6 +28,7 @@ const Search = () => {
   if (!movie) return <p>No movie details available.</p>;
 
   return (
+    // Movie Search
     <div className="p-4 md:p-8 bg-black text-white">
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/3">

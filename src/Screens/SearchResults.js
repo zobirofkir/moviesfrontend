@@ -16,6 +16,7 @@ const SearchResults = ({ title, posterPath, rating, movieId }) => {
   };
 
   return (
+    // Movie Search Card Results
     <div className="bg-black rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
       <img src={imageUrl} alt={title} className="w-full h-64 object-cover" />
       <div className="p-4">

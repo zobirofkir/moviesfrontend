@@ -66,6 +66,7 @@ const TvScreen = () => {
       };
     
     return (
+        // Tv Screen
         <div className="bg-black min-h-screen text-white">
         {film.length > 0 && !selectedMovie && (
             <HeroSection  
