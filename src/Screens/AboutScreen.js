@@ -2,6 +2,7 @@ import React from 'react';
 
 const AboutScreen = () => {
   return (
+    // About Screen
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
       <div className="max-w-3xl text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
